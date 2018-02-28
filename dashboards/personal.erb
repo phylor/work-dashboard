@@ -1,0 +1,28 @@
+<% content_for :title do %><%= ENV['MOCO_NAME'] %><% end %>
+<div class="gridster">
+  <ul>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="performance" data-view="Meter" data-title="Verrechenbarkeit" data-height="200" data-width="200" data-min="0" data-max="100" data-suffix="%"></div>
+    </li>
+
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="hour_balance" data-view="Number" data-title="Soll/Ist" data-suffix="h"></div>
+    </li>
+
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="devops_booked" data-view="Number" data-title="DevOps"></div>
+    </li>
+
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="days_left" data-view="Number" data-title="verbleibende Tage"></div>
+    </li>
+
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="ruby_stable" data-view="Text" data-title="Ruby"></div>
+    </li>
+
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="rails_versions" data-view="Text" data-title="Rails"></div>
+    </li>
+  </ul>
+</div>
