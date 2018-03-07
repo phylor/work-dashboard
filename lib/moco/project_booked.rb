@@ -14,7 +14,13 @@ class Moco::ProjectBooked
       latest_month = browser.page.css('.nav-tabs li:not([class=disabled])').last.css('a').first
       browser.click(latest_month)
 
-      browser.page.css("td:contains('#{@project}') + td").first.text
+      project_hours = browser.page.css("td:contains('#{@project}') + td").first
+      
+      if project_hours
+        project_hours.text
+      else
+        0
+      end
     end
   end
 end
