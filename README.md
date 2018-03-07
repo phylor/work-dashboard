@@ -21,6 +21,10 @@ MOCO_NAME         # The name as it appears in Moco, e.g. Max Mustermann
 MOCO_USER         # The email address used to log on Moco
 MOCO_PASSWORD     # The password used to log on Moco
 SUGAR_CUBES_TOKEN # The token used for sugarcubes.ch
+RACK_SECRET       # Random secret for Rack
+GOOGLE_DOMAIN     # Domain limited to Google authentication
+GOOGLE_CLIENT_ID  # Client ID for Google authentication
+GOOGLE_SECRET     # Secret for Google authentication
 ```
 
 Start the dashboard:
