@@ -7,7 +7,7 @@ SCHEDULER.every '10m', first_in: 0 do |job|
   points = json
     .map { |date, cubes| [date, cubes] }
     .sort_by { |entry| Date.parse(entry[0]) }
-    .map.with_index { |entry, index| { x: index, y: entry[1] } }
+    .map.with_index { |entry, index| { x: index, y: entry[1].round(2) } }
 
   send_event('sugar_cubes', points: points)
 end
