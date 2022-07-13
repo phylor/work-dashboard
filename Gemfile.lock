@@ -68,6 +68,7 @@ GEM
     mustermann (1.0.2)
     net-http-digest_auth (1.4.1)
     net-http-persistent (2.9.4)
+    net-ssh (6.1.0)
     netatmo (0.1.3)
       easy_enum (~> 0.1.4)
       faraday (~> 1.0)
@@ -130,6 +131,7 @@ PLATFORMS
 DEPENDENCIES
   activesupport
   mechanize
+  net-ssh
   netatmo
   smashing
 
