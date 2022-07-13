@@ -30,5 +30,6 @@ GOOGLE_SECRET     # Secret for Google authentication
 Start the dashboard:
 
 ```
-smashing start
+bundle
+bundle exec smashing start
 ```
