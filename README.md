@@ -13,8 +13,13 @@ This is my personal dashboard used at work. It includes:
 Set the following environment variables:
 
 ```
-HLEDGER_CLIENTS   # The file path to clients.yml
 RACK_SECRET       # Random secret for Rack
+HLEDGER_CLIENTS   # The file path to clients.yml
+HLEDGER_TIMECLOCK # The file path to the hledger timeclock
+NETATMO_CLIENT_ID
+NETATMO_CLIENT_SECRET
+NETATMO_CLIENT_USERNAME
+NETATMO_CLIENT_PASSWORD
 ```
 
 Start the dashboard:
