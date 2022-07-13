@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'smashing'
+gem 'activesupport'
 gem 'mechanize'
+gem 'smashing'
