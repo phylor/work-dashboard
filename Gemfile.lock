@@ -44,6 +44,8 @@ GEM
     faraday-patron (1.0.0)
     faraday-rack (1.0.0)
     faraday-retry (1.0.3)
+    faraday_middleware (1.2.0)
+      faraday (~> 1.0)
     geocoder (1.8.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
@@ -122,6 +124,9 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.5)
+    uptimerobot (0.2.0)
+      faraday (>= 0.8)
+      faraday_middleware
     webrobots (0.1.2)
     zeitwerk (2.6.0)
 
@@ -134,6 +139,7 @@ DEPENDENCIES
   net-ssh
   netatmo
   smashing
+  uptimerobot
 
 BUNDLED WITH
    1.16.1

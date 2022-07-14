@@ -1,4 +1,4 @@
-<% content_for :title do %><%= ENV['MOCO_NAME'] %><% end %>
+<% content_for :title do %>Work Dashboard<% end %>
 <div class="gridster">
   <ul>
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
@@ -18,7 +18,11 @@
     </li>
 
     <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
-      <div data-id="backups" data-view="List" data-title="Backups, hours ago"></div>
+      <div data-id="backups" data-view="List" data-title="Backups, hours ago" data-unordered="true"></div>
+    </li>
+
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="uptimerobot" data-view="Uptimerobot" data-title="App Status"></div>
     </li>
   </ul>
 </div>
