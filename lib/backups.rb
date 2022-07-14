@@ -1,4 +1,5 @@
 require 'net/ssh'
+require 'time'
 
 class Backups
   def value(projects)
@@ -15,10 +16,14 @@ class Backups
           hours_ago = if matches
             last_backup_date = matches[0]
 
-            ((DateTime.now - DateTime.parse(last_backup_date)) * 24).round
+            ((Time.now - Time.parse(last_backup_date)) / 3600).round
           end
 
-          backups.push({label: project, value: hours_ago})
+          backups.push({
+            label: project,
+            value: hours_ago,
+            status: hours_ago && hours_ago < 24 ? "ok" : "failed"
+          })
         end
       end
     end
