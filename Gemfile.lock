@@ -148,6 +148,8 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
+  faraday
+  faraday-net_http
   mechanize
   net-ssh
   netatmo

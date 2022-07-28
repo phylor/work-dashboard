@@ -1,8 +1,10 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
-gem 'activesupport'
-gem 'mechanize'
-gem 'netatmo'
-gem 'net-ssh'
-gem 'smashing'
-gem 'uptimerobot'
+gem "activesupport"
+gem "faraday"
+gem "faraday-net_http"
+gem "mechanize"
+gem "netatmo"
+gem "net-ssh"
+gem "smashing"
+gem "uptimerobot"
