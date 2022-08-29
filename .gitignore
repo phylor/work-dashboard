@@ -2,3 +2,4 @@
 history.yml
 .byebug_history
 backup_projects.yml
+.env
