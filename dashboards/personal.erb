@@ -1,6 +1,16 @@
+<script type='text/javascript'>
+ $(function() {
+   Dashing.numColumns = 7
+ });
+ </script>
+
 <% content_for :title do %>Work Dashboard<% end %>
 <div class="gridster">
   <ul>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="3">
+      <div data-id="uptimerobot" data-view="Uptimerobot" data-title="App Status"></div>
+    </li>
+
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="performance" data-view="Meter" data-title="Verrechenbarkeit" data-height="200" data-width="200" data-min="0" data-max="100" data-suffix="%"></div>
     </li>
@@ -18,15 +28,11 @@
     </li>
 
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="uptimerobot" data-view="Uptimerobot" data-title="App Status"></div>
-    </li>
-
-    <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
-      <div data-id="backups" data-view="Grid" data-title="Backups, hours ago"></div>
-    </li>
-
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="projects" data-view="Grid" data-title="Projects, this week [h]"></div>
+    </li>
+
+    <li data-row="1" data-col="2" data-sizex="2" data-sizey="1">
+      <div data-id="backups" data-view="Grid" data-title="Backups, hours ago"></div>
     </li>
 
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
