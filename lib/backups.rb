@@ -1,30 +1,31 @@
-require 'net/ssh'
-require 'time'
+require "net/ssh"
+require "time"
 
 class Backups
-  def value(projects)
+  def value(host)
     backups = []
-    hosts = projects.keys
 
-    hosts.each do |host|
-      Net::SSH.start(host.to_s) do |ssh|
-        projects[host].each do |project|
-          output = ssh.exec!("restic -r /var/backups/#{project} -p /srv/#{project}/.backup_password snapshots | tail -3 | head -1")
+    Net::SSH.start(host.to_s) do |ssh|
+      output = ssh.exec!("cat /var/backups/stats")
+      stats = CSV.parse(output, col_sep: ";")
 
-          matches = output.match(/(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})/)
+      # First line is the datetime of last check run
+      projects = stats.slice(1, stats.length)
 
-          hours_ago = if matches
-            last_backup_date = matches[0]
+      projects.each do |project, datetime|
+        matches = datetime&.match(/(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})/)
 
-            ((Time.now - Time.parse(last_backup_date)) / 3600).round
-          end
+        hours_ago = if matches
+          last_backup_date = matches[0]
 
-          backups.push({
-            label: project,
-            value: hours_ago,
-            status: hours_ago && hours_ago < 24 ? "ok" : "failed"
-          })
+          ((Time.now - Time.parse(last_backup_date)) / 3600).round
         end
+
+        backups.push({
+          label: project,
+          value: hours_ago,
+          status: hours_ago && hours_ago < 24 ? "ok" : "failed"
+        })
       end
     end
 
