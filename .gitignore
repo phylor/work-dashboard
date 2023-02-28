@@ -4,3 +4,4 @@ history.yml
 backup_projects.yml
 .env
 assets/images/daily_hours.png
+public/daily_hours.png

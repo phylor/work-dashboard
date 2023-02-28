@@ -37,7 +37,7 @@ module Hledger
         project =
           g.data project.first, project.slice(1..-1).map(&:to_f)
       end
-      g.write "assets/images/daily_hours.png"
+      g.write "public/daily_hours.png"
     end
 
     private
