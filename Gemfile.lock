@@ -51,7 +51,7 @@ GEM
     fugit (1.8.1)
       et-orbi (~> 1, >= 1.2.7)
       raabro (~> 1.4)
-    geocoder (1.8.1)
+    geocoder (1.8.2)
     gruff (0.19.0)
       histogram
       rmagick (>= 4.2)
@@ -148,7 +148,7 @@ GEM
       faraday_middleware
     webrick (1.8.1)
     webrobots (0.1.2)
-    zeitwerk (2.6.7)
+    zeitwerk (2.6.11)
 
 PLATFORMS
   ruby
