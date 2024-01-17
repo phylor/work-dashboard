@@ -8,7 +8,7 @@ class GrafanaQuery
     conn = Faraday.new(
       url: ENV["GRAFANA_DISK_URL"],
       params: {
-        db: "telegraf",
+        db: ENV["GRAFANA_DATABASE"],
         q: %{
           SELECT mean("used_percent") FROM "disk" WHERE time >= #{start_time.to_i}000ms and time <= #{Time.now.to_i}000ms GROUP BY time(1m), "host", "device" fill(null)
         },
