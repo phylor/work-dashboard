@@ -7,8 +7,6 @@ require "active_support/core_ext/date/calculations"
 module Hledger
   class Projects
     def total(beginning_date, unbilled = false)
-      clients = YAML.load(File.read(clients_filename))["clients"]
-
       csv_text = `hledger -f #{timeclock_filename} bal #{unbilled ? "" : "not:unbilled"} -1 -b #{beginning_date} --output-format csv`
       csv = CSV.parse(csv_text, headers: true)
 
