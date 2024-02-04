@@ -32,10 +32,6 @@ module Hledger
 
     private
 
-    def clients_filename
-      ENV.fetch("HLEDGER_CLIENTS")
-    end
-
     def timeclock_filename
       ENV.fetch("HLEDGER_TIMECLOCK")
     end

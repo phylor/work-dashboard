@@ -7,7 +7,9 @@ require "active_support/core_ext/date/calculations"
 module Hledger
   class Performance
     def total(beginning_date, unbilled = false)
-      clients = YAML.load(File.read(clients_filename))["clients"]
+      clients = Dir["#{clients_directory}/*"]
+        .map(&File.method(:basename))
+        .map { |filename| filename.gsub(/\.yml$/, "") } - %w[clients]
 
       csv_text = `hledger -f #{timeclock_filename} bal #{clients.map { |client| client["id"] }.join(" ")} #{unbilled ? "" : "not:unbilled"} -1 -b #{beginning_date} --output-format csv`
       csv = CSV.parse(csv_text, headers: true)
@@ -40,7 +42,7 @@ module Hledger
 
     private
 
-    def clients_filename
+    def clients_directory
       ENV.fetch("HLEDGER_CLIENTS")
     end
 
