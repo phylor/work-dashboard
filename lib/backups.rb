@@ -2,7 +2,7 @@ require "net/ssh"
 require "time"
 
 class Backups
-  def value(host)
+  def value
     backups = []
 
     output = `cat /var/backups/stats`
