@@ -5,7 +5,7 @@ class Backups
   def value
     backups = []
 
-    output = `cat /var/backups/stats`
+    output = `cat /data/backups/stats`
     stats = CSV.parse(output, col_sep: ";")
 
     # First line is the datetime of last check run
