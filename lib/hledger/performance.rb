@@ -14,30 +14,16 @@ module Hledger
       csv_text = `hledger -f #{timeclock_filename} bal #{clients.map { |client| client["id"] }.join(" ")} #{unbilled ? "" : "not:unbilled"} -1 -b #{beginning_date} --output-format csv`
       csv = CSV.parse(csv_text, headers: true)
 
-      csv.map do |row|
-        client = row["account"]
-
-        if client != "total"
-          hours = row["balance"].match(/^([\d.]+)h$/)[0].to_f
-          client_config = clients.find { |c| c["id"] == client }
-
-          hours * client_config["cents_per_hour"].to_i
-        else
-          0.0
-        end
-      end.sum / 100.0
+      hours_text = csv[-1]["balance"]
+      hours_text.match(/^([\d.]+)h$/)[0].to_f
     end
 
     def value
       beginning_of_month = Date.today.beginning_of_month.strftime("%Y-%m-%d")
-      beginning_of_year = Date.today.beginning_of_year.strftime("%Y-%m-%d")
 
       billed = total(beginning_of_month).round
-      with_unbilled = total(beginning_of_month, true).round
-      yearly = total(beginning_of_year).round
-      with_unbilled.to_f.zero? ? 100 : (billed / with_unbilled.to_f * 100).round
-
-      # puts "#{billed} / #{yearly}, #{percentage_billed}%"
+      unbilled = total(beginning_of_month, true).round
+      unbilled.to_f.zero? ? 100 : (billed / unbilled.to_f * 100).round
     end
 
     private
